@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Web Application</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Wallet Web Application</h1>
+        <form id="transaction-form">
+            <input type="text" id="account" placeholder="Account Type" required/>
+            <input type="number" id="amount" placeholder="Amount" required />
+            <select id="transaction-type" required>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+            <input type="date" id="date" required />
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="please select">Please select</option>
+                <option value="food">Food</option>
+                <option value="transport">Transport</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="utilities">Utilities</option>
+                <option value="salary">Salary</option>
+                <option value="other">Other</option>
+            </select>
+            <label for="subcategory">Subcategory:</label>
+            <input type="text" id="subcategory" placeholder="Subcategory (optional)">
+            <button type="submit">Add Transaction</button>
+        </form>
+        <form id="report-form">
+            <label for="report-time-gap">Select Time Gap:</label>
+            <select id="report-time-gap">
+                <option value="">Select</option>
+                <option value="1">Last 1 day</option>
+                <option value="7">Last 7 days</option>
+                <option value="30">Last 30 days</option>
+                <option value="custom">Custom Range</option>
+            </select>
+            <div id="custom-range" style="display: none;">
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
+            </div>
+            <button type="submit">Generate Report</button>
+        </form> 
+        <h2>Transactions</h2>
+        <div id="transactions-list"></div>
+        <div id="budget-status"></div>
+        <h2>Transaction Report</h2>
+        <div id="report-results"></div>
+        <h3>Transaction Summary</h3>
+        <canvas id="pieChart" class="pieChart"></canvas>    
+        </div>  
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
